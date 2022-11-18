@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" onclick="changeValue(event)">
+        <tr class="noedit">
+            <td>Имя</td>
+            <td>Фамилия</td>
+        </tr>
+        <tr>
+            <td>цфвцфв</td>
+            <td>фцв</td>
+        </tr>
+        <tr>
+            <td>ыуаыуаыа</td>
+            <td>кпв</td>
+        </tr>
+    </table>
+
+    <input type="text" placeholder="Имя" name="" id="fname">
+    <input type="text" placeholder="Фамилия" name="" id="lname">
+    <button onclick="addUser()">add</button>
+
+    <script>
+        let table_elem = document.querySelector('table');
+        function addUser() {
+            let fname = document.querySelector('#fname').value;
+            let lname = document.querySelector('#lname').value;
+
+            let tr_elem = document.createElement('tr');
+            let td_fname = document.createElement('td');
+            td_fname.innerText = fname;
+            let td_lname = document.createElement('td');
+            td_lname.innerText = lname;
+            tr_elem.appendChild(td_fname);
+            tr_elem.appendChild(td_lname);
+
+            table_elem.appendChild(tr_elem);
+        }
+        function changeValue(event) {
+            let change_tr_elem = event.target;
+            let new_val = prompt('Новое значение: ');
+            change_tr_elem.innerText = new_val;
+        }
+    </script>
+</body>
+</html>

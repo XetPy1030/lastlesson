@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Backend</p>
+    <form action="">
+        <p>Кто ты?</p>
+        <select name="level" id="" required>
+            <option value="1">джун</option>
+            <option value="2">миддл</option>
+            <option value="5">сеньор помидор</option>
+        </select>
+
+        <p>На чем пишешь?</p>
+        <div>
+            <p>Django</p><input required type="radio" name="frameworks" value="1.1">
+            <p>Flask</p><input type="radio" name="frameworks" value="1.05">
+            <p>FastApi</p><input type="radio" name="frameworks" value="1.0">
+        </div>
+
+        <p>Знаешь базы данных?</p> <input type="checkbox" name="db" id="">
+        <p>Умеешь работать с гитом?</p> <input type="checkbox" name="git">
+        <p>Сколько языков знаешь?</p><input required type="number" name="langs"  id="" min="1">
+        <p>Опыт(лет)?</p> <input required type="number" name="xp" id="" min="1">
+        <p>Есть высшее образование?</p> <input type="checkbox" name="highereduc" id="">
+
+        <br>
+        <input type="submit" value="submit">
+    </form>
+
+    <p class="result"></p>
+
+    <script>
+        let form = document.forms[0];
+        let form_param = form.elements;
+
+        form.addEventListener('submit', (event) => {
+            let level = form_param['level'].value;
+            let framework = form_param['frameworks'].value;
+            let is_db = form_param['db'].checked;
+            let is_git = form_param['git'].value;
+            let num_lang = form_param['langs'].value;
+            let xp = form_param['xp'].value;
+            let is_high = form_param['highereduc'].checked;
+
+            let balance = 15000;
+            balance *= level;
+            balance *= framework
+            balance *= is_db ? 1.2 : 1
+            balance += is_git ? 1000 : 0
+            balance += num_lang * 1500;
+            balance *= xp / 50 + 1;
+            balance *= is_high ? 1.5 : 1.0;
+
+            alert(balance)
+
+            event.preventDefault();
+        })
+    </script>
+</body>
+</html>

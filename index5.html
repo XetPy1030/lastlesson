@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Change the content of a cell</title>
+    <style type="text/css">
+      body {
+        margin: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="myTable" border="1"></table>
+    <form>
+      <input type="button" onclick="createTable()" value="Create the table" />
+    </form>
+
+    <script>
+        function createTable() {
+            let row = Number( prompt('Строк: ') );
+            let column = Number( prompt('Столбцов: ') );
+            let table_elem = document.querySelector('#myTable');
+
+            for (let i = 0; i < row; i ++) {
+                let tr_elem = document.createElement('tr');
+                for (let ii = 0; ii < column; ii ++) {
+                    let td_elem = document.createElement('td');
+                    td_elem.innerText = `${i}${ii}`;
+                    tr_elem.appendChild(td_elem);
+                }
+                table_elem.appendChild(tr_elem);
+            }
+        }
+    </script>
+  </body>
+</html>

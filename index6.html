@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Remove items from a dropdown list</title>
+  </head>
+  <body>
+    <select id="colorSelect">
+      <option>Red</option>
+      <option>Green</option>
+      <option>White</option>
+      <option>Black</option>
+    </select>
+    <input type="button" onclick="removecolor()" value="Select and Remove" />
+    <div id="deleted"></div>
+
+    <script>
+        function removecolor() {
+            let select_elem = document.querySelector('#colorSelect');
+            let delete_elem = select_elem.options[select_elem.selectedIndex];
+            select_elem.removeChild(delete_elem);
+        }
+    </script>
+  </body>
+</html>
